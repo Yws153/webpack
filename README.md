@@ -68,3 +68,10 @@ $ babel src -d lib
 # -s 参数生成source map文件
 $ babel src -d lib -s
 ```
+上面代码是在全局环境下，进行Babel转码，现在将babel-cli安装在项目之中
+```
+$ npm install --save-dev babel-cli
+```
+许多工具需要Babel进行前置转码，这里举两个例子：ESLint和Mocha。
+
+
