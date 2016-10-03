@@ -25,7 +25,7 @@ class Page extends React.Component {
     render() {
         return (
             <div className="homepage">
-				<ContentMode contents ="longen">this is one comment</ContentMode >
+				<ContentMode contents ="longen">this is o353ne comment</ContentMode >
 				<ContentMode contents ="longen2">this is two comment</ContentMode >
 			</div>
         );

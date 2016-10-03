@@ -9,14 +9,17 @@ module.exports = {
    },
 
   entry: {
-    // index: [
-    // 	'webpack-dev-server/client?http://localhost:3000',
-    // 	'webpack/hot/only-dev-server',
-    // 	'./src/hello.js'
-    // ],
+    index: [
+    	// 'webpack-dev-server/client?http://localhost:3000',
+    	// 'webpack/hot/only-dev-server',
+    	'./src/hello.js'
+    ],
     main: ['./src/main.js']
     
 
+  },
+  node: {
+  fs: "empty"
   },
   output: {
     path: __dirname,
@@ -35,7 +38,7 @@ module.exports = {
     }]
   },
   plugins: [
-   new webpack.HotModuleReplacementPlugin(),
+   // new webpack.HotModuleReplacementPlugin(),
    new webpack.NoErrorsPlugin()
 
   ]
