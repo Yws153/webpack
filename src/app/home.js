@@ -12,4 +12,3 @@ render(
   	</Provider>,
   	document.getElementById('content')
 )
-// 大方的说法
