@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux'
-import counterhandle from './counter'
-import counterState from './counter'
+// import { combineReducers } from 'redux'
+// import counter from './counter'
+// import counterState from './counter'
 
-//使用redux的combineReducers方法将所有reducer打包起来
-const rootReducer = combineReducers({
-  counterhandle: counterState
-})
+// //使用redux的combineReducers方法将所有reducer打包起来
+// const rootReducer = combineReducers({
+//   counter: counterState
+// })
 
-export default rootReducer
+// export default rootReducer
