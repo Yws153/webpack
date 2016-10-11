@@ -1,11 +1,19 @@
 import React, { Component, PropTypes } from 'react';
+import { render } from 'react-dom';
+import { bindActionCreators } from 'redux';
+import { connect, Provider } from 'react-redux';
+import rootReducer from '../reducers/counter.js';
+import customStore from '../store/configureStore.js';
+
+
 
 class Counter extends Component {
 	render() {
 		const { increment, incrementIfOdd, incrementAsync, decrement, counterState } = this.props;
+    console.log(counterState)
 		return (
 			<p>
-				Clicked: {counterState.get('counter')} times
+				Clicked: {counterState} times
 				{' '}
 				<button onClick={increment}>+</button>
         		{' '}
@@ -30,3 +38,9 @@ class Counter extends Component {
 // };
 
 export default Counter
+
+Counter = connect(state => state, dispatch => ({
+  actions: bindActionCreators(Actions , dispatch)
+}))(Counter);
+
+const Store = customStore(rootReducer);

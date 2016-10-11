@@ -2,6 +2,7 @@ import * as ActionTypes from '../constants/ActionTypes.js'
 import { fromJS } from 'immutable'
 import { combineReducers } from 'redux';
 
+
 const counterState = fromJS({
 	counter: 0
 })
@@ -16,6 +17,8 @@ function counterhandle(state = counterState, action) {
 	}[action.type] || (() => state))();
 }
 
-export default combineReducers({
-	counterState: counterhandle
-});
+const rootReducer = combineReducers({
+  counterState: counterhandle
+})
+
+export default rootReducer
