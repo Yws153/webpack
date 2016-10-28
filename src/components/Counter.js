@@ -3,19 +3,19 @@ import * as CounterActions from '../actions/counter'
 
 class Counter extends Component {
 	render() {
-		const { incrementIfOdd, incrementAsync, decrement, counter, dispatch } = this.props;
+		const { incrementIfOdd, incrementAsync, decrement, counter, actions } = this.props;
 		return (
 			<p>
 				Clicked: {counter.get('conter')} times
 				{' '}
 				{/* <button onClick={increment}>+</button> */}
-				<button onClick={() => dispatch(CounterActions.increment())}>+</button>
+				<button onClick={() => actions.increment()}>+</button>
         		{' '}
-       			<button onClick={decrement}>-</button>
+       			<button onClick={() => actions.decrement()}>-</button>
         		{' '}
-       			<button onClick={incrementIfOdd}>Increment if odd</button>
+       			<button onClick={() => actions.incrementIfOdd()}>Increment if odd</button>
        			{' '}
-        		<button onClick={() => incrementAsync()}>Increment async</button>
+        		<button onClick={() => actions.incrementAsync()}>Increment async</button>
 			</p>
 		)
 	}
