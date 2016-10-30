@@ -1,24 +1,24 @@
 import React, { Component, PropTypes } from 'react';
-import * as CounterActions from '../actions/counter'
+import * as CounterActions from '../actions/counter.action.js'
 
 class Counter extends Component {
-	render() {
-		const { incrementIfOdd, incrementAsync, decrement, counter, actions } = this.props;
-		return (
-			<p>
-				Clicked: {counter.get('conter')} times
-				{' '}
-				{/* <button onClick={increment}>+</button> */}
-				<button onClick={() => actions.increment()}>+</button>
-        		{' '}
-       			<button onClick={() => actions.decrement()}>-</button>
-        		{' '}
-       			<button onClick={() => actions.incrementIfOdd()}>Increment if odd</button>
-       			{' '}
-        		<button onClick={() => actions.incrementAsync()}>Increment async</button>
-			</p>
-		)
-	}
+  	render() {
+    		const { counter, actions } = this.props;
+    		return (
+    			<p>
+    				  Clicked: {counter.get('conter')} times
+    				  {' '}
+    				  {/* <button onClick={increment}>+</button> */}
+    				  <button onClick={() => actions.increment()}>+</button>
+            	{' '}
+       			  <button onClick={() => actions.decrement()}>-</button>
+        		  {' '}
+       			  <button onClick={() => actions.incrementIfOdd()}>Increment if odd</button>
+       			  {' '}
+        		  <button onClick={() => actions.incrementAsync()}>Increment async</button>
+    			</p>
+    		)
+  	}
 }
 // 限制组件的props安全
 Counter.propTypes = {
