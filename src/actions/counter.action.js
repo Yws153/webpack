@@ -22,8 +22,8 @@ export const incrementIfOdd = () => (dispatch, getState) => {
 
     //获取state对象中的counter属性值
     // const { counter } = getState() 或
-    const counter = getState().counter
-    const conter =  counter.get('conter')
+    const homeState = getState().homeState
+    const conter =  homeState.get('conter')
 
     //偶数则返回
     if (conter % 2 === 0) {

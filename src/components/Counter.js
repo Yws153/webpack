@@ -3,10 +3,10 @@ import * as CounterActions from '../actions/counter.action.js'
 
 class Counter extends Component {
   	render() {
-    		const { counter, actions } = this.props;
+    		const { homeState, actions } = this.props;
     		return (
     			<p>
-    				  Clicked: {counter.get('conter')} times
+    				  Clicked: {homeState.get('conter')} times
     				  {' '}
     				  {/* <button onClick={increment}>+</button> */}
     				  <button onClick={() => actions.increment()}>+</button>
