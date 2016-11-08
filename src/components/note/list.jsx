@@ -14,9 +14,9 @@ class Notes_list extends React.Component{
 		return(
 			<div className="notes_list">
 				<ReactCSSTransitionGroup 
-				transitionName="notes" 
-				transitionEnterTimeout={500}
-          				transitionLeaveTimeout={500}>
+					transitionName="notes" 
+					transitionEnterTimeout={500}
+          			transitionLeaveTimeout={500}>
 					{ notes_items }
 				</ReactCSSTransitionGroup>
 			</div>

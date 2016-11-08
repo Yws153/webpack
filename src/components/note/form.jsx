@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 
-class Notes_form extends React.Component{
+class form extends React.Component{
 
 	handleSubmit(event){
 		event.preventDefault();
@@ -33,10 +33,10 @@ class Notes_form extends React.Component{
 	}
 }
 
-Notes_form.propTypes = {
+form.propTypes = {
 	onToggleForm : PropTypes.func.isRequired,
 	formDisplayed : PropTypes.bool.isRequired,
 	onNewNote : PropTypes.func.isRequired
 }
 
-export default Notes_form; 
+export default form; 
