@@ -4,47 +4,54 @@ import ReactDOM from "react-dom";
 // import { connect } from "react-redux";
 import * as ActionTypes from '../../constants/ActionTypes.js'
 
+import * as CounterActions from '../../actions/note.action.js'
 // import { initNotes, addNote, deleteNote } from "../action/action.jsx";
-// import header from "../../component/note/header.jsx";
-// import form from "../../component/note/form.jsx";
-// import list from "../../component/note/list.jsx";
+import Header from "../../components/note/header.jsx";
+import form from "../../components/note/form.jsx";
+import List from "../../components/note/list.jsx";
 // import "../../style/style.scss";
 
+export default
 class Notes extends React.Component{
-	// constructor(props){
-	// 	super(props);
-	// 	this.state={
-	// 		formDisplayed : false
-	// 	};
-	// }
+	constructor(props){
+		super(props);
+		this.state={
+			formDisplayed : false
+		};
+	}
 
-	// componentDidMount(){
-	// 	this.props.dispatch( initNotes() );
-	// }
+	componentDidMount(){
+		this.props.actions.initNotes();
+	}
 
-	// onToggleForm(){
-	// 	this.setState({
-	// 		formDisplayed : !this.state.formDisplayed
-	// 	});
-	// }
+	onToggleForm(){
+		this.setState({
+			formDisplayed : !this.state.formDisplayed
+		});
+	}
 
-	// onNewNote(newNote){
-	// 	this.props.dispatch( addNote(newNote) );
-	// }
+	onNewNote(newNote){
+		this.props.dispatch( addNote(newNote) );
+	}
 
-	// onDeleteNote(date){
-	// 	/*根据日期来删除笔记*/
-	// 	var delete_date={
-	// 		date : date
-	// 	};
-	// 	this.props.dispatch( deleteNote(delete_date) );
-	// }
+	onDeleteNote(date){
+		/*根据日期来删除笔记*/
+		var delete_date={
+			date : date
+		};
+		this.props.actions.deleteNote(delete_date);
+	}
 
 	render(){
-		const { noteState } = this.props;
+		const { noteState, actions } = this.props;
 		return(
 			<div className="container">
-				123
+				<Header onToggleForm={ this.onToggleForm.bind(this) }/>
+				<div className="container_main">
+					<form onToggleForm={ this.onToggleForm.bind(this) } 
+					formDisplayed={ this.state.formDisplayed } onNewNote={ this.onNewNote.bind(this) }/>
+					<List notes={noteState.get('notes')} onDeleteNote={ this.onDeleteNote.bind(this) }/>
+				</div>
 			</div>
 		);
 	}

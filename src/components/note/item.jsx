@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 
-class item extends React.Component{
+class Item extends React.Component{
 
 	handleOver(){
 		this.refs.delete.style.display="block";
@@ -30,11 +30,11 @@ class item extends React.Component{
 	}
 }
 
-item.propTypes = {
-	title : PropTypes.string.isRequired,
-	description : PropTypes.string.isRequired,
-	date : PropTypes.string.isRequired,
-	onDeleteNote : PropTypes.func.isRequired
-}
+// Item.propTypes = {
+// 	title : PropTypes.string.isRequired,
+// 	description : PropTypes.string.isRequired,
+// 	date : PropTypes.string.isRequired,
+// 	onDeleteNote : PropTypes.func.isRequired
+// }
 
-export default item;
+export default Item;

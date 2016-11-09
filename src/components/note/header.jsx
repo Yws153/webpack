@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 
-class header extends React.Component{
+class Header extends React.Component{
 	render(){
 		return(
 			<div className="header">
@@ -14,8 +14,8 @@ class header extends React.Component{
 	}
 }
 
-header.propTypes = {
+Header.propTypes = {
 	onToggleForm : PropTypes.func.isRequired
 }
 
-export default header;
+export default Header;

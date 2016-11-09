@@ -33,10 +33,10 @@ class form extends React.Component{
 	}
 }
 
-form.propTypes = {
-	onToggleForm : PropTypes.func.isRequired,
-	formDisplayed : PropTypes.bool.isRequired,
-	onNewNote : PropTypes.func.isRequired
-}
+// form.propTypes = {
+// 	onToggleForm : PropTypes.func.isRequired,
+// 	formDisplayed : PropTypes.bool.isRequired,
+// 	onNewNote : PropTypes.func.isRequired
+// }
 
 export default form; 

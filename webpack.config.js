@@ -9,7 +9,7 @@ var config = {
         port: 2000
     },
     entry: {
-        home: ['./src/containers/Home/index.js'],
+        // home: ['./src/containers/Home/index.js'],
         note: ['./src/containers/Note/index.js']
     },
     output: {
@@ -26,6 +26,9 @@ var config = {
         }, {
             test: /\.jsx$/,
             loader: 'babel'
+        }, {
+            test: /\.scss/,
+            loader: 'style!css!sass'
         }]
     },
     plugins: [

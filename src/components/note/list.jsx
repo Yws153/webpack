@@ -1,10 +1,10 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
-import item from "./item.jsx";
+import Item from "./item.jsx";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import "../../style/transition.scss";
+// import "../../style/transition.scss";
 
-class Notes_list extends React.Component{
+class List extends React.Component{
 	render(){
 		var notes=this.props.notes;
 		var notes_items=notes.map( (note,index) => {
@@ -24,14 +24,14 @@ class Notes_list extends React.Component{
 	}
 }
 
-Notes_list.propTypes = {
-	notes : PropTypes.arrayOf(
-			PropTypes.shape({
-				title : PropTypes.string.isRequired,
-				description : PropTypes.string.isRequired,
-				date : PropTypes.string.isRequired
-			}).isRequired
-		).isRequired
-}
+// List.propTypes = {
+// 	notes : PropTypes.arrayOf(
+// 			PropTypes.shape({
+// 				title : PropTypes.string.isRequired,
+// 				description : PropTypes.string.isRequired,
+// 				date : PropTypes.string.isRequired
+// 			}).isRequired
+// 		).isRequired
+// }
 
-export default Notes_list;
+export default List;
