@@ -1,8 +1,5 @@
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-<<<<<<< HEAD
-import reducer from '../reducers/counter.js'
-=======
 // import counter from './counter.reducer.js'
 import rootReducer from '../reducers'
 
@@ -10,7 +7,7 @@ import rootReducer from '../reducers'
 // const rootReducer = combineReducers({
 //   counter
 // })
->>>>>>> df80ee26cd404524965d4978ca86244bc00a2743
+
 
 //applyMiddleware来自redux可以包装 store 的 dispatch
 //thunk作用是使被 dispatch 的 function 会接收 dispatch 作为参数，并且可以异步调用它

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // import { combineReducers } from 'redux'
 // import counter from './counter'
 // import counterState from './counter'
@@ -9,7 +9,7 @@
 // })
 
 // export default rootReducer
-=======
+
 import { combineReducers } from 'redux'
 import handlecounter from './counter.reducer.js'
 import handlenote from './note.reducer.js'
@@ -19,4 +19,3 @@ export default combineReducers({
     homeState: handlecounter,
     noteState: handlenote
 })
->>>>>>> df80ee26cd404524965d4978ca86244bc00a2743
