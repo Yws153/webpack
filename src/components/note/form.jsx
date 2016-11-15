@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
 
-class form extends React.Component{
+class Formcontain extends React.Component{
 
 	handleSubmit(event){
 		event.preventDefault();
@@ -16,16 +16,23 @@ class form extends React.Component{
 	}
 
 	render(){
-		var style={
-			display : this.props.formDisplayed ? "block" : "none"
-		};
+
+		const { formDisplayed, onSubmit, onToggleForm, style } = this.props
+		// const style={
+		// 	display : "block"
+		// 	// display : this.props.formDisplayed ? "block" : "none"
+		//
+		// };
 		return(
 			<div className="note_form_wrap">
-				<form ref="yout_form" action="#" className="note_form" style={ style } onSubmit={ this.handleSubmit.bind(this) }>
+				<form ref="yout_form" action="#" className="note_form" style={style}
+				onSubmit={onSubmit}
+				//  onSubmit={ this.handleSubmit.bind(this) }
+				 >
 					<h5>笔记</h5>
 					<input ref="title" type="text" className="your_title" placeholder="你的笔记的标题"/>
 					<textarea ref="description" className="your_description" placeholder="笔记的内容"/>
-					<input type="button" value="取消" className="cancel_btn" onClick={ this.props.onToggleForm }/>
+					<input type="button" value="取消" className="cancel_btn" onClick={onToggleForm}/>
 					<input type="submit" value="确认" className="confirm_btn"/>
 				</form>
 			</div>
@@ -39,4 +46,4 @@ class form extends React.Component{
 // 	onNewNote : PropTypes.func.isRequired
 // }
 
-export default form; 
+export default Formcontain;

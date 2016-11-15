@@ -24,12 +24,14 @@ import * as ActionTypes from '../constants/ActionTypes.js'
 import { fromJS } from 'immutable'
 
 const noteState = fromJS({
+    formDisplayed: false,
     notes: []
 })
 
 //reducer其实也是个方法而已,参数是state和action,返回值是新的state
 export default function handlenote(state = noteState, action) {
   	return ({
+        [ActionTypes.CHANGE_FORM_DISPLAY]           : () => state.update('formDisplayed', v => !v),
 		[ActionTypes.INIT_NOTES]             		: () => state.set('notes', action.notes),
 		[ActionTypes.ADD_NOTE]             			: () => state.set('notes', action.notes),
 		[ActionTypes.DELETE_NOTE]             		: () => state.set('notes', action.notes)

@@ -7,31 +7,32 @@ import * as ActionTypes from '../../constants/ActionTypes.js'
 import * as CounterActions from '../../actions/note.action.js'
 // import { initNotes, addNote, deleteNote } from "../action/action.jsx";
 import Header from "../../components/note/header.jsx";
-import form from "../../components/note/form.jsx";
+import Formcontain from "../../components/note/form.jsx";
 import List from "../../components/note/list.jsx";
 // import "../../style/style.scss";
 
 export default
 class Notes extends React.Component{
-	constructor(props){
+	constructor(props) {
 		super(props);
 		this.state={
 			formDisplayed : false
 		};
 	}
 
-	componentDidMount(){
+	componentDidMount() {
 		this.props.actions.initNotes();
+		this.props.actions.changeFormDisplay()
 	}
 
-	onToggleForm(){
+	onToggleForm() {
 		this.setState({
 			formDisplayed : !this.state.formDisplayed
 		});
 	}
 
 	onNewNote(newNote){
-		this.props.dispatch( addNote(newNote) );
+		this.props.actions.addNote(newNote)
 	}
 
 	onDeleteNote(date){
@@ -39,16 +40,20 @@ class Notes extends React.Component{
 		var delete_date={
 			date : date
 		};
-		this.props.actions.deleteNote(delete_date);
+		this.props.actions.deleteNote(delete_date)
 	}
 
 	render(){
 		const { noteState, actions } = this.props;
+
+		const formDisplayed = noteState.get('formDisplayed')
+
 		return(
 			<div className="container">
-				<Header onToggleForm={ this.onToggleForm.bind(this) }/>
+				<Header onClick={() => actions.initNotes()}/>
 				<div className="container_main">
-					<form onToggleForm={ this.onToggleForm.bind(this) } 
+					{/* <form onToggleForm={ this.onToggleForm.bind(this) } */}
+					<Formcontain onToggleForm={() => actions.changeFormDisplay()} style={{display: formDisplayed ? 'block' : 'none'}}
 					formDisplayed={ this.state.formDisplayed } onNewNote={ this.onNewNote.bind(this) }/>
 					<List notes={noteState.get('notes')} onDeleteNote={ this.onDeleteNote.bind(this) }/>
 				</div>
@@ -59,7 +64,7 @@ class Notes extends React.Component{
 
 // <Notes_header onToggleForm={ this.onToggleForm.bind(this) }/>
 				// <div className="container_main">
-				// 	<Notes_form onToggleForm={ this.onToggleForm.bind(this) } 
+				// 	<Notes_form onToggleForm={ this.onToggleForm.bind(this) }
 				// 	formDisplayed={ this.state.formDisplayed } onNewNote={ this.onNewNote.bind(this) }/>
 				// 	<Notes_list notes={ notes } onDeleteNote={ this.onDeleteNote.bind(this) }/>
 				// </div>

@@ -3,9 +3,13 @@
 import * as ActionTypes from '../constants/ActionTypes.js'
 
 //action创建函数
+export const changeFormDisplay = () => ({
+	type: ActionTypes.CHANGE_FORM_DISPLAY
+})
 
 //异步action会被redux-thunk中间件拦截，传入dispatch，getState等参数后执行
 export const initNotes = () => (dispatch, getState) => {
+	console.log('int')
 	// $.ajax({
 	// 		url : "/init",
 	// 		type : "get",
