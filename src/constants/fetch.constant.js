@@ -37,3 +37,62 @@ export const URL_GETACISSUE = 'http://127.0.0.1:1337/';
 // export const URL_GETINCOMESTATEMENT = 'http://10.0.0.99:3000/XFN-MF-1-master/IsvReceive/getincomestatement.do';
 // export const URL_GETACISSUE = 'http://10.0.0.99:3000/XFN-MF-1-master/IsvReceive/getacissue.do';
 
+// export default
+// function fetchApi(type, method, data = '', callback) {
+// 	let url, option
+//
+// 	switch (method.toUpperCase()) {
+// 		case 'GET':
+// 			url = URL[type] + '?' + data
+// 			option = {
+// 				credentials: 'include'
+// 			}
+// 			break
+// 		case 'POST':
+// 			url = URL[type]
+// 			option = {
+// 				method: 'POST',
+// 				headers: {
+// 					'Content-Type': 'application/json'
+// 				},
+// 				credentials: 'include',
+// 				body: data
+// 			}
+// 			break
+// 		default:
+// 			return console.error('method is not GET or POST')
+// 	}
+// 	//console.log('url---------', url, type)
+// 	thirdparty.hidePreloader()
+// 	thirdparty.showPreloader({
+// 		text: "使劲加载中.."
+// 	})
+//
+// 	return fetch(url, option)
+// 	.then(res => {
+// 		if (res.status === 200)
+// 		{
+// 			return res.json()
+// 		}
+// 		else {
+// 			return {
+// 				code: '-2',
+// 				// message: err
+// 				message: `通信异常，服务器返回码${res.status}`
+// 			}
+// 		}
+//
+// 	})
+// 	.catch(err => {
+// 		thirdparty.hidePreloader()
+// 		return {
+// 			code: '-2',
+// 			// message: err
+// 			message: `系统无响应`
+// 		}
+// 	})
+// 	.then(json => {
+// 		thirdparty.hidePreloader()
+// 		callback(json)
+// 	})
+// }
