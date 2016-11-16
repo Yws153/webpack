@@ -6,9 +6,9 @@ import * as ActionTypes from '../../constants/ActionTypes.js'
 
 import * as CounterActions from '../../actions/note.action.js'
 // import { initNotes, addNote, deleteNote } from "../action/action.jsx";
-import Header from "../../components/note/header.jsx";
-import Formcontain from "../../components/note/form.jsx";
-import List from "../../components/note/list.jsx";
+import Header from "./header.jsx";
+import Formcontain from "./form.jsx";
+import List from "./list.jsx";
 // import "../../style/style.scss";
 
 export default
@@ -35,18 +35,19 @@ class Notes extends React.Component{
 		this.props.actions.addNote(newNote)
 	}
 
-	onDeleteNote(date){
-		/*根据日期来删除笔记*/
-		var delete_date={
-			date : date
-		};
-		this.props.actions.deleteNote(delete_date)
-	}
+	// onDeleteNote(date){
+	// 	/*根据日期来删除笔记*/
+	// 	var delete_date={
+	// 		date : date
+	// 	};
+	// 	this.props.actions.deleteNote(delete_date)
+	// }
 
 	render(){
 		const { noteState, actions } = this.props;
 
 		const formDisplayed = noteState.get('formDisplayed')
+		const notes = noteState.get('notes')
 
 		return(
 			<div className="container">
@@ -54,21 +55,13 @@ class Notes extends React.Component{
 				<div className="container_main">
 					{/* <form onToggleForm={ this.onToggleForm.bind(this) } */}
 					<Formcontain onToggleForm={() => actions.changeFormDisplay()} style={{display: formDisplayed ? 'block' : 'none'}}
-					formDisplayed={ this.state.formDisplayed } onNewNote={ this.onNewNote.bind(this) }/>
-					<List notes={noteState.get('notes')} onDeleteNote={ this.onDeleteNote.bind(this) }/>
+					formDisplayed={ this.state.formDisplayed } onNewNote={() => actions.onNewNote()}/>
+					<List notes={notes} onDeleteNote={(value) => actions.deleteNote(value)}/>
 				</div>
 			</div>
 		);
 	}
 }
-
-// <Notes_header onToggleForm={ this.onToggleForm.bind(this) }/>
-				// <div className="container_main">
-				// 	<Notes_form onToggleForm={ this.onToggleForm.bind(this) }
-				// 	formDisplayed={ this.state.formDisplayed } onNewNote={ this.onNewNote.bind(this) }/>
-				// 	<Notes_list notes={ notes } onDeleteNote={ this.onDeleteNote.bind(this) }/>
-				// </div>
-
 // Notes.propTypes = {
 // 	notes : PropTypes.arrayOf(
 // 			PropTypes.shape({
@@ -78,11 +71,3 @@ class Notes extends React.Component{
 // 			}).isRequired
 // 		).isRequired
 // }
-
-// function select(state){
-// 	return{
-// 		notes : state.notes
-// 	}
-// }
-
-// export default connect(select)(Notes);

@@ -25,7 +25,11 @@ import { fromJS } from 'immutable'
 
 const noteState = fromJS({
     formDisplayed: false,
-    notes: []
+    notes: [{
+        title: '111',
+        description: '22222',
+        date: '2016-234'
+    }]
 })
 
 //reducer其实也是个方法而已,参数是state和action,返回值是新的state

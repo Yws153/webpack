@@ -17,7 +17,7 @@ class Formcontain extends React.Component{
 
 	render(){
 
-		const { formDisplayed, onSubmit, onToggleForm, style } = this.props
+		const { formDisplayed, onSubmit, onToggleForm, style, onNewNote } = this.props
 		// const style={
 		// 	display : "block"
 		// 	// display : this.props.formDisplayed ? "block" : "none"
@@ -36,7 +36,7 @@ class Formcontain extends React.Component{
 					<input type="submit" value="确认" className="confirm_btn"/>
 				</form>
 			</div>
-		);
+		)
 	}
 }
 

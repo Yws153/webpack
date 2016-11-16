@@ -87,6 +87,7 @@ export const addNote = (newNote) => (dispatch, getState) => {
 // };
 
 export const deleteNote = (delete_date) => (dispatch, getState) => {
+	console.log(delete_date)
 	// $.ajax({
 	// 		url : "/deleteNote",
 	// 		type : "post",
