@@ -40,7 +40,7 @@ var config = {
 //             template: './src/template/template.html', //html模板路径
 //             inject: 'body', //js插入的位置，true/'head'/'body'/false
 //             hash: true, //为静态资源生成hash值
-//             minify: { //压缩HTML文件    
+//             minify: { //压缩HTML文件
 // //                 removeComments: true, //移除HTML中的注释
 // //                 collapseWhitespace: false //删除空白符与换行符
 //             }
@@ -60,7 +60,7 @@ for (var name in config.entry) {
             template: './src/template/template.html', //html模板路径
             inject: 'body', //js插入的位置，true/'head'/'body'/false
             hash: true, //为静态资源生成hash值
-            minify: { //压缩HTML文件    
+            minify: { //压缩HTML文件
                 removeComments: true, //移除HTML中的注释
                 collapseWhitespace: false //删除空白符与换行符
             }

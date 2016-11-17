@@ -7,7 +7,7 @@ class Header extends React.Component{
 		return(
 			<div className="header">
 				<div className="header_main">
-					<h2>React 笔记</h2>
+					<h2>笔记</h2>
 					<input type="button" value="添加笔记" className="add_note_btn" onClick={onClick}/>
 				</div>
 			</div>

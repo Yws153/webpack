@@ -9,7 +9,7 @@ import * as CounterActions from '../../actions/note.action.js'
 import Header from "./header.jsx";
 import Formcontain from "./form.jsx";
 import List from "./list.jsx";
-// import "../../style/style.scss";
+import "../../style/style.scss";
 
 export default
 class Notes extends React.Component{

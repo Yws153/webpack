@@ -29,6 +29,16 @@ const noteState = fromJS({
         title: '111',
         description: '22222',
         date: '2016-234'
+    },
+    {
+        title: '111',
+        description: '22222',
+        date: '2016-234'
+    },
+    {
+        title: '111',
+        description: '22222',
+        date: '2016-234'
     }]
 })
 

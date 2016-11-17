@@ -1,14 +1,24 @@
 "use strict";
 // import $ from "../../bower_components/jquery/dist/jquery.js";
 import * as ActionTypes from '../constants/ActionTypes.js'
+import fetch from 'isomorphic-fetch'
+import { URL_GETACISSUE } from '../constants/fetch.constant.js'
 
 //action创建函数
 export const changeFormDisplay = () => ({
 	type: ActionTypes.CHANGE_FORM_DISPLAY
 })
 
+
 //异步action会被redux-thunk中间件拦截，传入dispatch，getState等参数后执行
 export const initNotes = () => (dispatch, getState) => {
+
+	fetch('URL_GETACISSUE/init', {credentials: 'include'}).then(res => {
+		if (res.status === 200)
+			alert('hello')
+	})
+
+
 	console.log('int')
 	// $.ajax({
 	// 		url : "/init",
