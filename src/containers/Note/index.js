@@ -37,6 +37,7 @@ import Notes from './app.js'
 import * as NoteActions from '../../actions/note.action.js'
 import configureStore from '../../store/configureStore.js'
 
+
 //将state.counter绑定到props的counter
 function mapStateToProps(state) {
   return {

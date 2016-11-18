@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --progress --host 0.0.0.0 --port 2000",
-    "start": "node ./src/bin/www"
+    "start": "webpack node ./src/bin/www"
   },
   "repository": {
     "type": "git",
@@ -44,7 +44,7 @@
     "redux-thunk": "^2.1.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.2",
+    "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.1"
   },
   "dependencies": {

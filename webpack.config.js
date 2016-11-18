@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+var path = require('path');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -8,6 +9,15 @@ var config = {
         inline: true,
         port: 2000
     },
+    // entry: {
+    //     home: ['./app.js']
+    //     // note: ['./src/containers/Note/index.js']
+    // },
+	// output: {
+	// 	path: path.join(__dirname,"./src/containers/out"),
+	// 	filename: "index.js",
+	// 	publicPath: "./src/containers/out"
+	// },
     entry: {
         // home: ['./src/containers/Home/index.js'],
         note: ['./src/containers/Note/index.js']

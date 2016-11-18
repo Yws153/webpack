@@ -4,19 +4,34 @@ import * as ActionTypes from '../constants/ActionTypes.js'
 import fetch from 'isomorphic-fetch'
 import { URL_GETACISSUE } from '../constants/fetch.constant.js'
 
+
+var server = require("../server/server");
+var router = require("../routes/index.js");
+var requestHandlers = require("../constants/requestHandlers");
+
+var handle={};
+handle["http://127.0.0.1:2000/"]=requestHandlers.start;
+handle["http://127.0.0.1:2000/start"]=requestHandlers.start;
+handle["http://127.0.0.1:2000/upload"]=requestHandlers.upload;
+
+server.start(router.route,handle);
+
+
 //action创建函数
 export const changeFormDisplay = () => ({
 	type: ActionTypes.CHANGE_FORM_DISPLAY
 })
 
 
+
+
 //异步action会被redux-thunk中间件拦截，传入dispatch，getState等参数后执行
 export const initNotes = () => (dispatch, getState) => {
-
-	fetch('URL_GETACISSUE/init', {credentials: 'include'}).then(res => {
-		if (res.status === 200)
-			alert('hello')
-	})
+	// handle["/"]=requestHandlers.start;
+	// fetch('init', {credentials: 'include'}).then(res => {
+	// 	if (res.status === 200)
+	// 		alert('hello')
+	// })
 
 
 	console.log('int')
