@@ -4,17 +4,17 @@ import * as ActionTypes from '../constants/ActionTypes.js'
 import fetch from 'isomorphic-fetch'
 import { URL_GETACISSUE } from '../constants/fetch.constant.js'
 
-
-var server = require("../server/server");
-var router = require("../routes/index.js");
-var requestHandlers = require("../constants/requestHandlers");
-
-var handle={};
-handle["http://127.0.0.1:2000/"]=requestHandlers.start;
-handle["http://127.0.0.1:2000/start"]=requestHandlers.start;
-handle["http://127.0.0.1:2000/upload"]=requestHandlers.upload;
-
-server.start(router.route,handle);
+//
+// var server = require("../server/server");
+// var router = require("../routes/index.js");
+// var requestHandlers = require("../constants/requestHandlers");
+//
+// var handle={};
+// handle["http://127.0.0.1:2000/"]=requestHandlers.start;
+// handle["http://127.0.0.1:2000/start"]=requestHandlers.start;
+// handle["http://127.0.0.1:2000/upload"]=requestHandlers.upload;
+//
+// server.start(router.route,handle);
 
 
 //action创建函数

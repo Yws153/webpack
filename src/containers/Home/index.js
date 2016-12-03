@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Counter from '../../components/Counter.js'
+import Counter from './app.js'
 import * as CounterActions from '../../actions/counter.action.js'
 import configureStore from '../../store/configureStore.js'
 
