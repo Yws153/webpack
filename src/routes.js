@@ -9,6 +9,6 @@ export default (
     <Route path="/" component={App}>
         {/* <IndexRoute component={Notes}/> */}
         <IndexRoute component={Counter}/>
-        {/* <Route path="counter" component={Counter}/> */}
+        <Route path="counter" component={Notes}/>
     </Route>
 )

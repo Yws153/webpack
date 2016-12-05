@@ -28,7 +28,10 @@ var config = {
         filename: 'build/[name].js'
     },
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx'],
+        alias: {
+            src: SRC
+        },
     },
     module: {
         loaders: [{

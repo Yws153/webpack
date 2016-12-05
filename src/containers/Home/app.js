@@ -1,26 +1,22 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux'
 import { fromJS } from 'immutable'
+import { Link } from 'react-router'
 import * as CounterActions from '../../actions/counter.action.js'
+// import  from 'src/index.js'
 
 @connect(state => state)
 class Counter extends Component {
   	render() {
-		// const { homeState, actions } = this.props;
-        const { homeState, actions } = this.props;
-
-        console.log(actions)
-
-        // const homeState = fromJS({
-        //     conter : 0
-        // })
+		const { homeState, dispatch, history } = this.props;
 
 		return <p>
 			Clicked: {homeState.get('conter')} times{' '}
-			<button onClick={() => actions.increment()}>+</button>{' '}
-   			<button onClick={() => actions.decrement()}>-</button>{' '}
-   			<button onClick={() => actions.incrementIfOdd()}>Increment if odd</button>{' '}
-    		<button onClick={() => actions.incrementAsync()}>Increment async</button>
+			<button onClick={() => dispatch(CounterActions.increment())}>+</button>{' '}
+   			<button onClick={() => dispatch(CounterActions.decrement())}>-</button>{' '}
+   			<button onClick={() => dispatch(CounterActions.incrementIfOdd())}>Increment if odd</button>{' '}
+    		<button onClick={() => dispatch(CounterActions.incrementAsync())}>Increment async</button>
+            <Link to={'/counter'}>计时器</Link>
 		</p>
   	}
 }

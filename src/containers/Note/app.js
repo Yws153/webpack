@@ -1,19 +1,16 @@
 "use strict";
 import React, { Component, PropTypes } from "react";
+import { connect } from 'react-redux'
 import ReactDOM from "react-dom";
-// import { connect } from "react-redux";
-import * as ActionTypes from '../../constants/ActionTypes.js'
+import * as noteActions from '../../actions/note.action.js'
+// import history from 'src/index.js'
 
-import * as CounterActions from '../../actions/note.action.js'
-// import { initNotes, addNote, deleteNote } from "../action/action.jsx";
 import Header from "./header.jsx";
 import Formcontain from "./form.jsx";
 import List from "./list.jsx";
 import "../../style/style.scss";
 
-// import { connect } from 'react-redux'
-//
-// @connect(state => state)
+@connect(state => state)
 export default
 class Notes extends React.Component{
 	constructor(props) {
@@ -24,8 +21,8 @@ class Notes extends React.Component{
 	}
 
 	componentDidMount() {
-		this.props.actions.initNotes();
-		this.props.actions.changeFormDisplay()
+		this.props.dispatch(noteActions.initNotes())
+		this.props.dispatch(noteActions.changeFormDisplay())
 	}
 
 	onToggleForm() {
@@ -47,20 +44,24 @@ class Notes extends React.Component{
 	// }
 
 	render(){
-		const { noteState, actions } = this.props
+		const { noteState, dispatch, history } = this.props
 
 		const formDisplayed = noteState.get('formDisplayed')
 		const notes = noteState.get('notes')
 
 		return(
 			<div className="container">
-				<Header onClick={() => actions.initNotes()}/>
+				<Header onClick={() => {
+					dispatch(noteActions.initNotes())
+					dispatch(noteActions.changeFormDisplay())
+				}}/>
 				<div className="container_main">
 					{/* <form onToggleForm={ this.onToggleForm.bind(this) } */}
-					<Formcontain onToggleForm={() => actions.changeFormDisplay()} style={{display: formDisplayed ? 'block' : 'none'}}
-					formDisplayed={ this.state.formDisplayed } onNewNote={() => actions.onNewNote()}/>
-					<List notes={notes} onDeleteNote={(value) => actions.deleteNote(value)}/>
+					<Formcontain onToggleForm={() => dispatch(noteActions.changeFormDisplay())} style={{display: formDisplayed ? 'block' : 'none'}}
+					formDisplayed={this.state.formDisplayed} onNewNote={() => dispatch(noteActions.onNewNote())}/>
+					<List notes={notes} onDeleteNote={(value) => dispatch(noteActions.deleteNote(value))}/>
 				</div>
+				<span onClick={() => history.goBack()}>计时器</span>
 			</div>
 		);
 	}
