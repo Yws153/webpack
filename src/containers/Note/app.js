@@ -11,9 +11,9 @@ import Formcontain from "./form.jsx";
 import List from "./list.jsx";
 import "../../style/style.scss";
 
-import { connect } from 'react-redux'
-
-@connect(state => state)
+// import { connect } from 'react-redux'
+//
+// @connect(state => state)
 export default
 class Notes extends React.Component{
 	constructor(props) {
@@ -47,7 +47,7 @@ class Notes extends React.Component{
 	// }
 
 	render(){
-		const { noteState, actions } = this.props;
+		const { noteState, actions } = this.props
 
 		const formDisplayed = noteState.get('formDisplayed')
 		const notes = noteState.get('notes')

@@ -1,22 +1,27 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux'
+import { fromJS } from 'immutable'
 import * as CounterActions from '../../actions/counter.action.js'
 
+@connect(state => state)
 class Counter extends Component {
   	render() {
-    		const { homeState, actions } = this.props;
-    		return <p>
-    				  Clicked: {homeState.get('conter')} times
-    				  {' '}
-    				  {/* <button onClick={increment}>+</button> */}
-    				  <button onClick={() => actions.increment()}>+</button>
-            	{' '}
-       			  <button onClick={() => actions.decrement()}>-</button>
-        		  {' '}
-       			  <button onClick={() => actions.incrementIfOdd()}>Increment if odd</button>
-       			  {' '}
-        		  <button onClick={() => actions.incrementAsync()}>Increment async</button>
-    			</p>
+		// const { homeState, actions } = this.props;
+        const { homeState, actions } = this.props;
 
+        console.log(actions)
+
+        // const homeState = fromJS({
+        //     conter : 0
+        // })
+
+		return <p>
+			Clicked: {homeState.get('conter')} times{' '}
+			<button onClick={() => actions.increment()}>+</button>{' '}
+   			<button onClick={() => actions.decrement()}>-</button>{' '}
+   			<button onClick={() => actions.incrementIfOdd()}>Increment if odd</button>{' '}
+    		<button onClick={() => actions.incrementAsync()}>Increment async</button>
+		</p>
   	}
 }
 // 限制组件的props安全

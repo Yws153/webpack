@@ -7,7 +7,8 @@ import Notes from './containers/Note/app.js'
 
 export default (
     <Route path="/" component={App}>
-        <IndexRoute component={Notes}/>
-        <Route path="counter" component={Counter}/>
+        {/* <IndexRoute component={Notes}/> */}
+        <IndexRoute component={Counter}/>
+        {/* <Route path="counter" component={Counter}/> */}
     </Route>
 )
