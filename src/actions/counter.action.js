@@ -1,4 +1,5 @@
 import * as ActionTypes from '../constants/ActionTypes.js'
+import fetch from 'isomorphic-fetch';
 
 import {
     USRID,
@@ -7,28 +8,28 @@ import {
 } from '../constants/fetch.constant.js';
 
 //导出加一的方法
-export const increment = () => ({
-    type: ActionTypes.INCREMENT_COUNTER
-})
+// export const increment = () => ({
+//     type: ActionTypes.INCREMENT_COUNTER
+// })
 
-// export const increment = () => dispatch => {
-//     fetch(URL_GETACISSUE, {
-//         method: 'POST',
-//         headers: HEADERS,
-//         body: JSON.stringify({
-//             usrid: USRID
-//         })
-//     })
-//     .then(res => res.json())
-//     .then(json => {
-//         console.log(json)
-//         // dispatch({
-//         //     type: AFTER_GET_AC_ISSUE_FETCH,
-//         //     receivedData: json
-//         // });
-//         // dispatch(getVcListFetch([json.acissue.latestyear, json.acissue.latestmonth, new Date().getDay()].join('-')));
-//     });
-// };
+export const increment = () => dispatch => {
+    fetch(URL_GETACISSUE, {
+        method: 'POST',
+        headers: HEADERS,
+        body: JSON.stringify({
+            usrid: USRID
+        })
+    })
+    .then(res => res.json())
+    .then(json => {
+        console.log(json)
+        // dispatch({
+        //     type: AFTER_GET_AC_ISSUE_FETCH,
+        //     receivedData: json
+        // });
+        // dispatch(getVcListFetch([json.acissue.latestyear, json.acissue.latestmonth, new Date().getDay()].join('-')));
+    });
+};
 
 //导出减一的方法
 export const decrement = () => ({
