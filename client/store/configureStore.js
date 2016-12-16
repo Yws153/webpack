@@ -40,8 +40,8 @@ export default function configureStore(initialState) {
   //热替换选项
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../reducers/counter.js', () => {
-      const nextReducer = require('../reducers/counter.js')
+    module.hot.accept(rootReducer, () => {
+      const nextReducer = require(rootReducer)
       store.replaceReducer(nextReducer)
     })
   }
