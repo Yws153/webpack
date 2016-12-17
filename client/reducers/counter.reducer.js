@@ -12,4 +12,3 @@ export default function handlecounter(state = homeState, action) {
 		[ActionTypes.DECREMENT_COUNTER] 			: () => state.update('conter', v => v - 1)
 	}[action.type] || (() => state))();
 }
-

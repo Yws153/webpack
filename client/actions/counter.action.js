@@ -1,11 +1,17 @@
 import * as ActionTypes from '../constants/ActionTypes.js'
 import fetch from 'isomorphic-fetch';
+import jwtDecode from 'jwt-decode'
+import { checkHttpStatus } from '../utils.js'
 
 import {
     USRID,
-    HEADERS,
     URL_GETACISSUE
 } from '../constants/fetch.constant.js';
+
+const HEADERS = {
+	'Content-Type': 'application/json'//x-www-form-urlencoded'
+};
+
 
 //导出加一的方法
 // export const increment = () => ({
@@ -13,22 +19,47 @@ import {
 // })
 
 export const increment = () => dispatch => {
+
+    const data = {
+        articleTitle: '11111',
+        articleDay: '2016-01-01',
+        comment: {
+            name:'12',
+            email: '23',
+            comment: '34',
+            website: '90',
+            admin: 'yezi'
+        }
+    }
+
+
     fetch(URL_GETACISSUE, {
         method: 'POST',
-        headers: HEADERS,
-        body: JSON.stringify({
-            usrid: USRID
-        })
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(data)
+
+    //   body: JSON.stringify({ password: '234' })
     })
+    .then(checkHttpStatus)
     .then(res => res.json())
-    .then(json => {
-        console.log(json)
-        // dispatch({
-        //     type: AFTER_GET_AC_ISSUE_FETCH,
-        //     receivedData: json
-        // });
-        // dispatch(getVcListFetch([json.acissue.latestyear, json.acissue.latestmonth, new Date().getDay()].join('-')));
-    });
+    .then(res => {
+      try {
+        // throw error if it is invalid
+        let decoded = jwtDecode(res.ok)
+        // dispatch(pushState(null, '/'))
+        // alert(JSON.stringify(decoded))
+      } catch (e) {
+        // get the token which is invalid
+        alert(e)
+      }
+    })
+    .catch(error => {
+      // fail to get the jwt token
+    })
+
 };
 
 //导出减一的方法

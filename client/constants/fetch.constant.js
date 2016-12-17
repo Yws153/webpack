@@ -7,7 +7,7 @@ export const HEADERS = {
 	'Content-Type': 'application/json'//x-www-form-urlencoded'
 };
 
-export const URL_GETACISSUE = 'http://127.0.0.1:1337/';
+export const URL_GETACISSUE = 'http://localhost:2000/login';
 // export const URL_SETDEFAULTDB = 'http://10.0.0.99:3000/XFN-MF-1-master/auth/setdefaultdb.do';
 
 // // config

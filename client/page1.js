@@ -3,28 +3,32 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Counter from './containers/Home/app.js'
-import * as CounterActions from './actions/counter.action.js'
 import configureStore from './store/configureStore.js'
 
-//将state.counter绑定到props的counter
-function mapStateToProps(state) {
-  return {
-    homeState: state.homeState
-  }
-}
-//将action的所有方法绑定到props上
-function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(CounterActions, dispatch) }
-}
 
-//通过react-redux提供的connect方法将我们需要的state中的数据和actions中的方法绑定到props上
-const App = connect(mapStateToProps, mapDispatchToProps)(Counter)
-const store = configureStore()
+import homeState from './reducers/counter.reducer.js'
+import noteState from './reducers/note.reducer.js'
+// import * as reducers from './reducers'
+import { combineReducers } from 'redux'
+
+import routes from './routes'
+import { Router, useRouterHistory, hashHistory } from 'react-router'
+import { routerReducer, syncHistoryWithStore } from 'react-router-redux'
+import { createHistory } from 'history'
+// import createBrowserHistory from 'history/lib/createBrowserHistory'
+
+const rootReducer = combineReducers({
+    homeState,
+    noteState,
+    routing: routerReducer
+})
+const store = configureStore(rootReducer)
+
+export const history = syncHistoryWithStore(hashHistory, store)
 
 render(
   	<Provider store={store}>
-    	<App />
+        <Router history={history} routes={routes}/>
   	</Provider>,
   	document.getElementById('content')
 )
