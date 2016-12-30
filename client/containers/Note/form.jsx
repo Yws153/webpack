@@ -17,7 +17,7 @@ class Formcontain extends React.Component{
 
 	render(){
 
-		const { formDisplayed, onSubmit, onToggleForm, style, onNewNote } = this.props
+		const { formDisplayed, onSubmit, onToggleForm, style, onNewNote, onChangeT, onChangeA } = this.props
 		// const style={
 		// 	display : "block"
 		// 	// display : this.props.formDisplayed ? "block" : "none"
@@ -25,7 +25,16 @@ class Formcontain extends React.Component{
 		// };
 		return(
 			<div className="note_form_wrap">
-				<form ref="yout_form" action="#" className="note_form" style={style}
+				<div className="note_form" style={style}
+				//  onSubmit={ this.handleSubmit.bind(this) }
+				 >
+					<h5>笔记</h5>
+					<input ref="title" type="text" className="your_title" placeholder="你的笔记的标题" onChange={onChangeT}/>
+					<textarea ref="description" className="your_description" placeholder="笔记的内容" onChange={onChangeA}/>
+					<input type="button" value="取消" className="cancel_btn" onClick={onToggleForm}/>
+					<input type="button" value="确认" className="confirm_btn" onClick={onSubmit}/>
+				</div>
+				{/* <form ref="yout_form" action="http://localhost:2000/addnotes" className="note_form" style={style} method="post"
 				onSubmit={onSubmit}
 				//  onSubmit={ this.handleSubmit.bind(this) }
 				 >
@@ -34,7 +43,7 @@ class Formcontain extends React.Component{
 					<textarea ref="description" className="your_description" placeholder="笔记的内容"/>
 					<input type="button" value="取消" className="cancel_btn" onClick={onToggleForm}/>
 					<input type="submit" value="确认" className="confirm_btn"/>
-				</form>
+				</form> */}
 			</div>
 		)
 	}

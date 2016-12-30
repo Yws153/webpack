@@ -6,3 +6,6 @@ export const INIT_NOTES = 'INIT_NOTES'
 export const ADD_NOTE = 'ADD_NOTE'
 export const DELETE_NOTE = 'DELETE_NOTE'
 export const CHANGE_FORM_DISPLAY = 'CHANGE_FORM_DISPLAY'
+
+export const CHANGE_TITLE = 'CHANGE_TITLE'
+export const CHANGE_DESC = 'CHANGE_DESC'
